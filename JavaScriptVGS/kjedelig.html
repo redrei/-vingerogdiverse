@@ -1,0 +1,28 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<input type="number" id="tall1">
+	<input type="number" id="tall2">
+	<button onclick="gunksjon()">klikk</button>
+	<div id="ut"></div>
+	<script>
+		var ut = document.getElementById("ut");
+		function gunksjon(){
+			var talla = document.getElementById("tall1").value;
+			var tallb = document.getElementById("tall2").value;
+			var tallac = Number(document.getElementById("tall1").value);
+			var tallbc = Number(document.getElementById("tall2").value);
+			var sumu = talla + tallb;
+			var summ = tallac + tallbc;
+			ut.innerHTML = "<br> <br> addisjon uten casting: " + sumu + "<br> addisjon med casting: " + summ ;
+		}
+		
+		
+	</script>
+</body>
+</html>

@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+<head>
+	<style>
+		body {
+			flex-direction: row;
+		}
+		.inlineblock {
+			display: inline-flex;
+			flex-direction: column;
+		}
+		.inlineblock label {
+			display: flex;
+			padding: 0;
+			margin-bottom: -10px;
+		}
+		.inlineblock input {
+			display: flex;
+			padding: 0;
+			margin-top: -10px;
+			width: 90px;
+		}
+	</style>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+<input id="in_flyplassfra" list="dl_flyplasser" placeholder="flyplassfra">
+<input id="in_flyplasstil" list="dl_flyplasser" placeholder="flyplasstid">
+<datalist id="dl_flyplasser">
+	<option>Flesland</option>
+	<option>Fornebu</option>
+	<option>Gardemoen</option>
+	<option>Kjevik</option>
+	<option>Heathrow</option>
+	<option>Gatwick</option>
+	<option>JFK International Airport</option>
+	<option>Flughafen Berlin Brandenburg</option>
+</datalist>
+<br>
+<input type="date" placeholder="dd.mm.yyyy" id="in_aarfra">
+<input type="date" placeholder="dd.mm.yyyy" id="in_aartil">
+<br>
+<div>
+	<label><input name="tur" type="radio" id="in_envei">en vei</label>
+	<label><input name="tur" type="radio" id="in_retur">tur-retur</label>
+</div>
+<br>
+<div class="inlineblock">
+	<label for="bullcrp">Voksne</label>
+	<br>
+	<input id="bullcrp" type="number">
+</div>
+<div class="inlineblock">
+	<label for="annetbullcrp">barn (0-11 år)</label>
+	<br>
+	<input id="annetbullcrp" type="number">
+</div>
+</body>
+</html>

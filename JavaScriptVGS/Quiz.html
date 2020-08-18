@@ -1,0 +1,112 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<h1 id="quiztitle" antspm="4">Quiz</h1>
+	<h2 id="spm1"> Spørsmål 1</h2>
+	<label><input type="radio" name="spm1" value="0" id="spm1sv1">svar 1</label>
+	<label><input type="radio" name="spm1" value="1" id="spm1sv2">svar 2</label>
+	<label><input type="radio" name="spm1" value="0" id="spm1sv3">svar 3</label>
+	<button onclick="f_radiosvar(1,3)" id="btn1"> klikk her</button> 
+	<div id="outputspm1"></div>
+	<br>
+	<h2 id="spm2"> Spørsmål 2</h2>
+	<br>
+	<label><input type="radio" name="spm2" value="1" id="spm2sv1">svar 1</label>
+	<label><input type="radio" name="spm2" value="0" id="spm2sv2">svar 2</label>
+	<label><input type="radio" name="spm2" value="0" id="spm2sv3">svar 3</label>
+	<button onclick="f_radiosvar(2,3)" id="btn2"> klikk her</button> 
+		<div id="outputspm2"></div>
+	<br>
+		<h2> Spørsmål 3</h2>
+	<br>
+	<label><input type="radio" name="spm3" value="0" id="spm3sv1">svar 1</label>
+	<label><input type="radio" name="spm3" value="0" id="spm3sv2">svar 2</label>
+	<label><input type="radio" name="spm3" value="1" id="spm3sv3">svar 3</label>
+	<button onclick="f_radiosvar(3,3)" id="btn3"> klikk her</button> 
+		<div id="outputspm3"></div>
+	<br>	
+		<h2> Spørsmål 4</h2>
+	<br>
+	<label><input type="checkbox" name="spm4" value="0" id="spm4sv1">svar 1</label>
+	<label><input type="checkbox" name="spm4" value="0" id="spm4sv2">svar 2</label>
+	<label><input type="checkbox" name="spm4" value="0" id="spm4sv3">svar 3</label>
+	<label><input type="checkbox" name="spm4" value="1" id="spm4sv4">svar 4</label>
+	<label><input type="checkbox" name="spm4" value="1" id="spm4sv5">svar 5</label>
+	<button> klikk her</button> 
+		<div id="outputspm4"></div>
+		<script>
+		var var_verdi = 0;
+		console.log("funker dette?");
+		/*function f_radiosvar(p_spmnum,p_svant){
+			console.log("kjører");
+			for(i = 1;i <= Number(p_svant);i++){
+				document.getElementById("spm" + String(p_spmnum) + "sv" + String(i)).disabled = true;
+				if(document.getElementById("spm" + p_spmnum + "sv" + i).checked === true){
+				var_verdi = Number(document.getElementById("spm" + p_spmnum + "sv" + i).value);
+				} else {
+			
+				}
+			}
+		var var_output = document.getElementById("outputspm"+ String(p_spmnum));
+		if(Number(var_verdi) === 1){
+			var_output.innerHTML = "gratulerer du greide spørsmål nr. " + p_spmnum + "!";
+			var_verdi = 0;
+			}else {
+			var_output.innerHTML = "bahbahbaah, du er en taper, da du ikke greide å svare rett på spørsmål " + String(p_spmnum) + "!";
+		}
+		document.getElementById("btn" + p_spmnum).disabled = true;
+		
+		}*/
+			var spm1sv1 = document.getElementById("spm1sv1");
+			var spm1sv2 = document.getElementById("spm1sv2");
+			var spm1sv3 = document.getElementById("spm1sv3");
+			var spm2sv1 = document.getElementById("spm2sv1");
+			var spm2sv2 = document.getElementById("spm2sv2");
+			var spm2sv3 = document.getElementById("spm2sv3");
+			var spm3sv1 = document.getElementById("spm3sv1");
+			var spm3sv2 = document.getElementById("spm3sv2");
+			var spm3sv3 = document.getElementById("spm3sv3");
+			spm1sv1.onclick = spm1sv2.onclick = spm1sv3.onclick = spm2sv1.onclick = spm2sv2.onclick = spm2sv3.onclick = spm3sv1.onclick = spm3sv2.onclick = spm3sv3.onclick = function(evt){
+				var var_output = document.getElementById("output"+ String(evt.target.name));
+				if(Number(evt.target.value) === 1){
+					var_output.innerHTML = "gratulerer du greide spørsmål nr. " + evt.target.name + "!";
+				}else {
+					var_output.innerHTML = "bahbahbaah, du er en taper, da du ikke greide å svare rett på spørsmål " + String(evt.target.name) + "!";
+		}
+				for(i = 1;i <= Number(3);i++){
+				document.getElementById(evt.target.name + "sv" + String(i)).disabled = true;
+				if(document.getElementById(evt.target.name + "sv" + i).checked === true){
+				var_verdi = Number(document.getElementById(evt.target.name + "sv" + i).value);
+				} else {
+			
+				}
+			}
+			};
+			var spm4sv1 = document.getElementsByName("spm4sv1");
+			var spm4sv2 = document.getElementsByName("spm4sv2");
+			var spm4sv3 = document.getElementsByName("spm4sv3");
+			var spm4sv4 = document.getElementsByName("spm4sv4");
+			var spm4sv5 = document.getElementsByName("spm4sv5");
+			
+			spm4sv1.onchange = spm4sv2.onchange = spm4sv3.onchange = spm4sv4.onchange = spm4sv5.onchange = function(evt){
+				console.log(hei);
+				var output = document.getElementById("outputspm4");
+				evt.target.disabled = true;
+				if (document.getElementById("spm4sv3").checked === true && document.getElementById("spm4sv5").checked === true) {
+					output.innerHTML = "helt rett svar!";
+				} else if(document.getElementById("spm4sv3").checked === true || document.getElementById("spm4sv5").checked === true) {
+					output.innerHTML = "du har litt rett, men ikke helt!";
+				} else {
+					output.innerHTML = "ingen rette!";
+				}
+			}; 
+
+	</script>
+	
+</body>
+</html>

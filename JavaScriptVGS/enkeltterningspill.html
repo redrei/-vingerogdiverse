@@ -1,0 +1,90 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<div id="kropp">
+		<h1> Terningspill </h1>
+		<h3> Regler: </h3>
+		<h5>Du begynner med tre terninger. For hvert kast du gjør tar du vekk den høyeste terningen og legger den til poengsummen din, før du kaster påny med bare to terninger.<br> Du tar så den høyeste terningen og legger den til poengsummen din, før du kaster kun den siste terningen og legger den til poengene dine. <br> Målet er å få en så høy poengsum som mulig. Maks poeng: 18. </h5>
+	<button id="fyrstekast" onclick="fyrstekastet()"> KAST! </button>
+	
+	<script>
+		var kast = document.getElementById("fyrstekast");
+		var data = document.getElementById("data");
+		var kropp = document.getElementById("kropp");
+		var d = 0;
+		var i = 0;
+		var poengsum = " var den høyeste terningen. <br> Sum av høyeste terninger er nå: ";
+		function fyrstekastet(){
+			var a = Math.floor(Math.random()*6+1);
+			var b = Math.floor(Math.random()*6+1);
+			var c = Math.floor(Math.random()*6+1);
+			var knapp = "<br><button id='andrekast' onclick='andrekastet()'> kast </button>"
+			var terninger = String(a) + ", " + String(b) + ", " + String(c);
+			if(a > b && a > c){
+				kropp.removeChild(kast);
+				d += a;
+				i++;
+				kropp.innerHTML += i + ". Kast: " + terninger + "<br>" + String(a) + poengsum + String(d) + knapp;
+			} else if(b > a && b > c){
+				kropp.removeChild(kast);
+				d += b;
+				i++;
+				kropp.innerHTML += i + ". Kast: " + terninger + "<br>" + String(b) + poengsum + String(d) + knapp;
+			} else if(c > b && c > a){
+				kropp.removeChild(kast);
+				d += c;
+				i++;
+				kropp.innerHTML += i + ". Kast: " + terninger + "<br>" + String(c) + poengsum + String(d) + knapp;
+			} else if (b === a || b === c || a === c || a === b === c){
+				kropp.removeChild(kast);
+				i++;
+				kropp.innerHTML += i + ". Kast: " + terninger + "<br>Minst to terninger var like store. Trill igjen. <br>" + poengsum + String(d) + '<br><button id="kast" onclick="fyrstekastet()"> kast </button><br><br>';
+				kast = document.getElementById("kast");
+			} else {
+				document.write(" NOE GALT HAR SKJEDD FÅ PANIKK NÅ!!!!")
+			} }
+		function andrekastet(){
+			var andrekast = document.getElementById("andrekast");
+			var a = Math.floor(Math.random()*6+1);
+			var b = Math.floor(Math.random()*6+1);
+			var terninger = String(a) + ", " + String(b);
+			if(a > b) {
+				i++;
+				d += a;
+				kropp.removeChild(andrekast);
+				kropp.innerHTML += "<br> <br>" + i +". kast: " + terninger + "<br>" + String(a) + " var den høyeste terningen. <br> Sum av høyeste terninger er nå: " + String(d) + "<br><button id='tredjekast' onclick='tredjekastet()'> siste kast </button>";
+			} else if(b > a) {
+				i++
+				d += b;
+				kropp.removeChild(andrekast);
+				kropp.innerHTML += "<br><br>" + i +". kast: " + terninger + "<br>" + String(b) + " var den høyeste terningen. <br> Sum av høyeste terninger er nå: " + String(d) + "<br><button id='tredjekast' onclick='tredjekastet()'> siste kast </button>";
+			}
+			else if (a === b) {
+				i++
+				kropp.removeChild(andrekast);
+			
+				kropp.innerHTML += "<br><br>" + i + ". kast: " + terninger + "<br> Terningene er like store. Trill igjen. <br> Sum av høyeste terninger er nå: " + String(d) + "<br><button id='andrekast' onclick='andrekastet()'> kast </button>";
+		}else {
+			document.write("har har det skjedd noe galt");
+		}}
+		function tredjekastet(){
+			var kast = document.getElementById("tredjekast");
+			var a = Math.floor(Math.random()*6+1);
+			var terninger = String(a);
+			i++;
+			d += a;
+			kropp.removeChild(kast);
+			kropp.innerHTML += "<br><br>" + i + ". kast: " + terninger + "<br>" + "Du fikk " + String(a) + " på ditt siste kast. <br> Poengsummen din ble " + String(d);
+			
+				
+		}
+		
+	</script>
+	</div>
+</body>
+</html>

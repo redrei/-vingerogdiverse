@@ -1,0 +1,45 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<style>input:hover{
+		scale: 1.1;
+		}</style>
+	<p>skriv inn hvor mange ganger du vil trille terningene</p>
+	<input id="antall" placeholder="antall trill" type="number">
+	<input id="tall" placeholder="tall som telles skal" min="1" max="6" type="number">
+	<button id="knapp" onclick="trill()">tell</button>
+	<div id="data"></div>
+	
+	<script>
+	var input = document.getElementById("antall");
+	var data = document.getElementById("data");
+	var tallinput = document.getElementById("tall");
+	function trill(){
+		data.innerHTML = "";
+		var d = [];
+		var tell = 0;
+		var antall = Number(input.value);
+		var tall = Number(tallinput.value);
+		for(i = 0; i < Number(input.value); i++){
+			var a = Math.floor(Math.random()*6+1);
+			var b = Math.floor(Math.random()*6+1);
+			var c = Math.floor(Math.random()*6+1);
+			d += [a, b, c,]
+			data.innerHTML += "<br>" + a + ", " + b + ", " + c + ". <br>"; 
+		}
+		for(i=0; i < d.length; i++){
+			if(d[i] == tall){
+				tell++;
+			}
+		}
+		data.innerHTML += "<br> du fikk terningen på " + tall + ": " + tell + " ganger."; 
+	}
+	
+	</script>
+</body>
+</html>

@@ -1,0 +1,47 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>oppgave 10</title>
+</head>
+
+<body>
+	<input id="antall">
+	<button id="submit">submit</button>	
+	<button id="summer">summer</button>
+	<table id="tabell"><th>tall</th></table>
+	<script>
+		var v_antall = document.getElementById("antall");
+		var v_tabell = document.getElementById("tabell");
+		var v_array = [];
+		var v_submit = document.getElementById("submit");
+		var v_summer = document.getElementById("summer");
+		var v_sum = 0;
+		function f_tilfeldigtall(lav, hoy){
+			return Math.floor(Math.random()*hoy)+lav;
+		}
+		function f_fyllarray(p_antall,fra,til){
+			for(i = 0; i < p_antall; i++){
+				v_array[i] = f_tilfeldigtall(fra,til);
+			}
+		}
+		v_submit.onclick = function(evt){
+	 		v_tabell.innerHTML = "<th> tall </th>";
+			v_array = [];
+			v_sum = 0;
+			f_fyllarray(Number(v_antall.value),1,10);
+			for(i = 0;i < Number(v_array.length);i++){
+				v_tabell.innerHTML += "<td>" + v_array[i] + "</td>";
+			}
+			console.log(v_array);
+			f_tabellsummer();
+			console.log(v_sum);
+		}
+		function f_tabellsummer(){
+			for(i = 0; i < Number(v_array.length); i++){
+				v_sum += Number(v_array[i]);
+			}
+		}
+	</script>
+</body>
+</html>

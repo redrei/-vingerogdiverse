@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<title>Untitled Document</title>
+		<link type="text/css" rel="stylesheet" href="../css/figurcss.css">
+	</head>
+
+	<body>
+		<img id="fig1" src="../bildemappe/romersk kriger.svg" height="160px" width="70px" alt="kriger" style="margin-top: 0; margin-bottom: 0; margin-right: 0; margin-left: 0;">
+		<script>
+			var fig1 = document.getElementById("fig1");
+			var t = 0;
+			var b = 0;
+			var r = 0;
+			var l = 0;
+			var tp = t + "px";
+			var bp = b + "px";
+			var rp = r + "px";
+			var lp = l + "px";
+			fig1.style.marginTop = tp;
+			fig1.style.marginBottom = bp;
+			fig1.style.marginRight = rp;
+			fig1.style.marginLeft = lp;
+			
+			document.onkeydown = bevegfigur;
+			function bevegfigur() {
+				switch (e.keyCode) {
+					case 40 :
+						var t = t + 10;
+						var tp = t + "px";
+						fig1.style.marginTop = tp;
+				}
+			}
+			
+			
+		</script>
+	</body>
+</html>

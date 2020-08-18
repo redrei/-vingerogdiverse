@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body id="!">
+	<script>
+		var dollar = setTimeout(klokke(),5000)
+		function klokke(){
+			var tid = new Date();
+			document.getElementById("!").innerHTML = tid.getHours() + ":" + tid.getMinutes() + ":" + tid.getSeconds();
+			clearTimeout("dollar");
+			var dollar = setTimeout(klokke(),5000);
+		};
+
+	
+	</script>
+</body>
+</html>

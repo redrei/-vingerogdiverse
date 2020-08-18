@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>Untitled Document</title>
+</head>
+
+<body>
+	<div id="data"></div>
+	<button id="klikk" onclick="tilfeldig()"> Klikk </button>
+	<script>
+		var ut = document.getElementById("data")
+		function tilfeldigtall(p_ganger, p_pluss){
+		return Math.floor(Math.random()*p_ganger)+p_pluss;	
+		}
+		
+		function tilfeldig(){
+			var talla = Number(tilfeldigtall(20,1));
+			var tallb = Number(tilfeldigtall(20,1));
+			var tallc = Number(tilfeldigtall(20,1));
+			var tallsum = tallb + tallc;
+			ut.innerHTML += "<br> Tilfeldig tall: " + talla + "<br> Tilfeldig utregning: " + tallb + " + " + tallc + " = " + tallsum;
+		}
+	
+	
+	</script>
+	
+</body>
+</html>

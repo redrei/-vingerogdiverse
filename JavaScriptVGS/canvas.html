@@ -1,0 +1,76 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Untitled Document</title>
+</head>
+
+<body>
+	<canvas id="canvas" width="500px" height="500px" style="border: 1px solid black;"></canvas>
+	<select id="farge" type="text" placeholder="skriv inn ønsket farge">
+		<option value="black">black</option>
+		<option value="blue">blue</option>
+		<option value="red">red</option>
+		<option value="green">green</option>
+		<option value="purple">purple</option>
+		<option value="orange">orange</option>
+		<option value="pink">pink</option>
+	</select>
+	<input id="xinn" type="number" placeholder="skriv inn x-koordinat for starten av streken">
+	<input id="yinn" type="number" placeholder="skriv inn y-koordinat for starten av streken">
+	<input id="breddeinn" type="number" placeholder="skriv inn bredden for krysset">
+	<input id="hoydeinn" type="number" placeholder="skriv inn høyden for krysset">
+	<input id="antall" type="number" placeholder="antall firkanter">
+	<button id="rndbutton">tilfeldig</button>
+	
+	<script>
+		var fargevalg = document.getElementById("farge")
+		var canvas = document.getElementById("canvas");
+		var ctx = canvas.getContext("2d");
+		function f_tegne(xpos,ypos,bredde,hoyde){
+			ctx.beginPath();
+			ctx.strokeStyle = String(fargevalg.options[fargevalg.selectedIndex].text);
+			ctx.moveTo(Number(xpos),Number(ypos));
+			ctx.lineTo(Number(xpos) + Number(bredde),Number(ypos) + Number(hoyde));
+			ctx.fillStyle = String(fargevalg.options[fargevalg.selectedIndex].text);
+			ctx.fillRect(Number(xpos),Number(ypos),Number(bredde),Number(hoyde))
+			ctx.stroke();
+			console.log(xpos + ", " + ypos + ", " + bredde + ", " + hoyde);
+			ctx.closePath();
+		//var xPos = Number(document.getElementById("xinn").value);
+		//var yPos = Number(document.getElementById("yinn").value);
+		//var bredde = Number(document.getElementById("breddeinn").value);
+		//var hoyde = Number(document.getElementById("hoydeinn").value);	
+		}
+		canvas.addEventListener('click', function (hendelse) {f_tegne(hendelse.clientX, hendelse.clientY, Math.floor(Math.random()*100+1)-Math.floor(Math.random()*100+1), Math.floor(Math.random()*100+1)-Math.floor(Math.random()*100+1))}, false);
+		
+		//canvas.onclick = tegne(Event.clientX,Event.clientY,Math.floor(Math.random()*100+1)-Math.floor(Math.random()*200+1),Math.floor(Math.random()*100+1)-Math.floor(Math.random()*200+1), "#" + Math.floor(Math.random()*999999+1));
+		function f_rndsquare(xpos,ypos,bredde,antall){
+				ctx.beginPath();
+				ctx.strokeStyle = f_rndfarge();
+				ctx.fillStyle = f_rndfarge();
+				ctx.fillRect(Number(xpos),Number(ypos),Number(bredde),Number(bredde));
+				ctx.stroke();
+				console.log(xpos + ", " + ypos + ", " + bredde + ", " + ctx.strokeStyle);
+				ctx.closePath();
+		}
+		function f_rndfarge() {
+  			var letters = '0123456789ABCDEF';
+  			var color = '#';
+  			for (var i = 0; i < 6; i++) {
+				color += letters[Math.floor(Math.random() * 16)];
+  			}
+  			return color;
+		}
+		var v_rndbutton = document.getElementById("rndbutton");
+		var v_antall = document.getElementById("antall");
+		v_rndbutton.onclick = function(evt){
+			for(i = 0;i < Number(v_antall.value); i++){	f_rndsquare(Math.floor(Math.random()*500+1),Math.floor(Math.random()*500+1),Math.floor(Math.random()*20+10));
+							  }
+		};
+		
+
+	</script>
+	<button id="submit" onclick="f_tegne(Number(document.getElementById('xinn').value),Number(document.getElementById('yinn').value),Number(document.getElementById('breddeinn').value),Number(document.getElementById('hoydeinn').value))">enter</button>
+</body>
+</html>

@@ -1,0 +1,141 @@
+<!doctype html> <html><body><p>hei</p></body></html>
+<html>
+    <head>
+        <title>En veldig vakker tittel</title>
+        <meta charset="UTF-8">
+        <link rel="stylesheet" href="./CSS/dennecssfilenher.css">
+    </head>
+    <body>
+        <center>
+        <nav>
+            <ul>
+                <li><a href="https://www.bt.no">BT</a></li>
+                <li><a href="https://www.ba.no">BA</a></li>
+				<li><a href="https://www.wikipedia.org">Pålitelig kilde</a></li>
+				<li><a href="http://www.ikkepedia.org">Upålitelig kilde</a></li>
+            </ul>
+        </nav>
+        </center>
+        <center>
+        <div id="hei" class="dette">
+			<h1><a id="1" target="_blank" href="https://www.convertunits.com/from/dollars/to/cents"> Valutakalkulator</a></h1>
+        
+        <a target="_blank" href="https://no.wikipedia.org/wiki/Diktatur">
+        <p>Dette er en valutakalkulator som lar deg se hvor mye en dollar er verdt i cent</p>
+        </a>
+        <div>
+           <button id="2" class="1">
+                <img id="3" src="https://static.comicvine.com/uploads/original/1/17981/5001593-image+%281%29.jpg" alt="enevelde/absolutisme" width="900p" height= "600p">
+            </button> 
+            <script>
+				var div = document.getElementById("hei");
+				var b1 = "https://static.comicvine.com/uploads/original/1/17981/5001593-image+%281%29.jpg";
+				// pleide å være https://static1.squarespace.com/static/53b17013e4b0f83f2d8a8a4a/t/53bbd633e4b08d62f1545c23/1404819043263/Absolutism.jpg?format=1500w
+				var b2 = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTof5IXVCuP3X76BMYQH6OaJey2vqrVUJnKetwc3WaOdgQ1xGHSrg";
+				var b3 = "http://www.tronderbladet.no/incoming/article3236169.ece/ALTERNATES/w980-default/sau%20med%20lam.jpg";
+				var a1 = "enevelde/absolutisme";
+				var a2 = "en rev";
+				var a3 = "sauer/lam";
+				var i = 1;
+				document.getElementById("2").onclick = kildeskift;
+					function kildeskift() {
+						i++;
+						if(i>=4) {
+							i=1;
+						}
+						//var b = b;
+						document.getElementById("3").src = eval("b"+i);
+						document.getElementById("3").alt = eval("a"+i);
+						
+						
+						//Metoden jeg brukte før jeg la til i
+						//if(document.getElementById("3").src == bilde1){
+							//document.getElementById("3").src = bilde2;
+							//document.getElementById("3").alt = alt2;
+						//}
+						//else{
+							//document.getElementById("3").src = bilde1;
+							//document.getElementById("3").alt = alt1;		
+						//};
+					};
+			</script>
+            <table>
+            	<tr>
+					<th>Individ</th>
+					<th>Tittel</th>
+					<th>Bedre halvdel</th>
+				</tr>
+				<tr>
+					<th>Per</th>
+					<td>Baron</td>
+					<td>Baronesse Pauline</td>
+				</tr>
+				<tr>
+					<th>Pål</th>
+					<td>Greve</td>
+					<td>Grevinne Maria</td>
+				</tr>
+				<tr>
+					<th>Espen</th>
+					<td>Hertug</td>
+					<td>Hertuginne Frøya</td>
+				</tr>
+				<tr>
+					<th>Karl</th>
+					<td>Konge</td>
+					<td>Dronning Margreta</td>
+				</tr>
+			</table>
+       		<table class="annenklasse">
+       			<tr>
+					<th></th>
+					<th>Florin</th>
+					<th>Penning</th>
+					<th>As</th>
+					<th>Skilling</th>
+				</tr>
+				<tr>
+					<th>Florin</th>
+					<td></td>
+					<td>8</td>
+					<td>2</td>
+					<td>3</td>
+				</tr>
+				<tr>
+					<th>Penning</th>
+					<td>1/12</td>
+					<td></td>
+					<td>1/6</td>
+					<td>1/4</td>
+				</tr>
+				<tr>
+					<th>As</th>
+					<td>5/11</td>
+					<td>4</td>
+					<td></td>
+					<td>2</td>
+				</tr>
+				<tr>
+					<th>Skilling</th>
+					<td>1/6</td>
+					<td>5/2</td>
+					<td>1/5</td>
+					<td></td>
+				</tr>
+			</table>
+       		<script>
+				var a = prompt("synonym for Gud"); 
+				if (a != ""){
+				a = a.toLowerCase();
+				}
+				if(a === "grishbagluk"){
+					document.write("<br> du har sett lyset <br> <img src='https://res.cloudinary.com/teepublic/image/private/s--zpFYFZyy--/t_Preview/b_rgb:2e2828,c_limit,f_jpg,h_630,q_90,w_630/v1446160350/production/designs/65472_1.jpg'</img>");
+				} else {
+					document.write("<br> filthy heretic <br> <img id='heretic' src='https://fronhistorielag.files.wordpress.com/2014/06/heksebrenning.jpg'</img>");
+				};
+			</script>
+        </div>
+        </div>
+    </center>
+    </body>
+</html>
